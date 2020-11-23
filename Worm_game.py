@@ -33,30 +33,34 @@ def puntos(max_y,max_x,laberinto):
 
     return p, color_p
 
-def lab(laberinto,max_y):
-    a = 5
-    for i in range(1,30,a):
-        laberinto.append([i,20])
-    # for i in range(1,30,a):
-    #     laberinto.append([i,40])
-    for i in range(1,30,a):
-        laberinto.append([i,60])
-    # for i in range(1,30,a):
-    #     laberinto.append([i,80])
-    for i in range(1,30,a):
-        laberinto.append([i,100])
-    # for i in range(1,30,a):
-    #     laberinto.append([i,120])
-    for i in range(3,30,a):
-        laberinto.append([max_y -i,30])
-    # for i in range(3,30,a):
-    #     laberinto.append([max_y -i,50])
-    for i in range(3,30,a):
-        laberinto.append([max_y -i,70])
-    # for i in range(3,30,a):
-    #     laberinto.append([max_y -i,90])
-    for i in range(3,30,a):
-        laberinto.append([max_y -i,110])
+def lab(level=0,laberinto,max_y):
+    if level = 0:
+        laberinto = []
+    elif level = 1:
+        a = 5
+        for i in range(1,30,a):
+            laberinto.append([i,20])
+        # for i in range(1,30,a):
+        #     laberinto.append([i,40])
+        for i in range(1,30,a):
+            laberinto.append([i,60])
+        # for i in range(1,30,a):
+        #     laberinto.append([i,80])
+        for i in range(1,30,a):
+            laberinto.append([i,100])
+        # for i in range(1,30,a):
+        #     laberinto.append([i,120])
+        for i in range(3,30,a):
+            laberinto.append([max_y -i,30])
+        # for i in range(3,30,a):
+        #     laberinto.append([max_y -i,50])
+        for i in range(3,30,a):
+            laberinto.append([max_y -i,70])
+        # for i in range(3,30,a):
+        #     laberinto.append([max_y -i,90])
+        for i in range(3,30,a):
+            laberinto.append([max_y -i,110])
+
     return laberinto
 
 def main(stdscr):
@@ -94,7 +98,7 @@ def main(stdscr):
 
     # Pinta el laberinto
     laberinto = list()
-    laberinto = lab(laberinto,max_y)
+    laberinto = lab(0,laberinto,max_y)
 
     # laberinto = [[max_y -3,10],[max_y -4,10],[max_y -5,10],
     #              [max_y -6,10],[max_y -7,10],[max_y -8,10],[max_y -9,10],
@@ -139,7 +143,10 @@ def main(stdscr):
                     # Pinta el laberinto
                     # laberinto = [[20,50],[21,50],[22,50],[23,50],[24,50],[25,50],[26,50]]
                     laberinto = list()
-                    laberinto = lab(laberinto,max_y)
+                    if nivel = 0:
+                        laberinto = lab(0,laberinto,max_y)
+                    else:
+                        laberinto = lab(1,laberinto,max_y)
 
                     for i in laberinto:
                         scr.addstr(i[0],i[1],' ',curses.A_REVERSE)
